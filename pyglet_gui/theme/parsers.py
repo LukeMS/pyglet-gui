@@ -19,6 +19,9 @@ class Parser:
 class TextureParser(Parser):
 
     def __init__(self, resources_path):
+        # unless I add the resource_path to pyglet.resource.path, the load fails
+        pyglet.resource.path.append(resources_path)
+        
         self._textures = {}
         self._loader = pyglet.resource.Loader(resources_path)
 
